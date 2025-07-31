@@ -1,6 +1,6 @@
-# 📐 calculus 1-matlab-lib
+# 📐 calculus-1-matlab-lib
 
-**A MATLAB library for visualizing and solving Calculus I problems — with intuition, interactivity, and inspiration.**
+**A MATLAB library for visualizing and solving Calculus 1 problems — with intuition, interactivity, and inspiration.**
 
 ---
 
@@ -9,7 +9,7 @@
 Ever struggled to *see* what a derivative means?  
 Ever wanted to *feel* how integrals accumulate area?  
 
-`calculus-matlab-lib` is a learning-focused collection of **MATLAB codes** designed to **visualize**, **simulate**, and **solve** core topics from **Calculus I** — from limits and continuity to derivatives and integrals — in a way that's intuitive, interactive, and engaging.
+`calculus-1-matlab-lib` is a learning-focused collection of **MATLAB codes** designed to **visualize**, **simulate**, and **solve** core topics from **Calculus 1** — from limits and continuity to derivatives and integrals — in a way that's intuitive, interactive, and engaging.
 
 > 💡 “Calculus is the language of change — and MATLAB helps us speak it visually.”
 
@@ -17,7 +17,7 @@ Ever wanted to *feel* how integrals accumulate area?
 
 ## 📚 What You’ll Find
 
-- ✅ Clear and well-commented MATLAB scripts for Calculus I topics  
+- ✅ Clear and well-commented MATLAB scripts for Calculus 1 topics  
 - ✅ Visualizations for limits, derivatives, integrals, and applications  
 - ✅ Dynamic plots to build intuition  
 - ✅ Modular structure to help both learners and teachers
@@ -49,7 +49,7 @@ This project aims to:
 
 1. Clone this repository:
    ```bash
-   git clone https://github.com/DuyetBKU/calculus 1-matlab-lib.git
+   git clone https://github.com/DuyetBKU/calculus-1-matlab-lib.git
    ```
 2. Open any `.m` file in MATLAB.
 3. Run, tweak, and explore — calculus comes alive through code!
