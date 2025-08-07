@@ -1,4 +1,4 @@
-function thetich
+function volume
 syms x
 f1 = input('Enter function f1(x) = ');
 f2 = input('Enter function f2(x) = ');
