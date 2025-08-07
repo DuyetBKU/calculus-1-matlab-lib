@@ -1,4 +1,4 @@
-function tcdt
+function verticalasymptote
 syms t
 X = input('Enter function x = ');
 Y = input('Enter function y = ');
