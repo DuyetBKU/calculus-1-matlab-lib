@@ -68,51 +68,55 @@ end
 ```
 ```matlab
 function taylor3
+% Estimates the limit of a function f(x) as x → x0 using Taylor series expansion
+% when the limit is in the indeterminate form 0/0
+
 syms x
-f = input('Enter f(x) = ');                % Input: symbolic expression
-x0 = input('Compute limit as x → x0: ');   % Input: the limit point
+f = input('Enter f(x) = ');                % User inputs the symbolic function f(x)
+x0 = input('Compute limit as x → x0: ');   % User inputs the point x0 to evaluate the limit
 
-[num, den] = numden(f);                    % Extract numerator and denominator
+[num, den] = numden(f);                    % Decompose f into numerator and denominator
 
-% Check if the function is in indeterminate form 0/0 at x0
+% Check if f(x) has indeterminate form 0/0 at x0
 if subs(num, x, x0) == 0 && subs(den, x, x0) == 0
 
-    % --- Find lowest-order nonzero term in numerator ---
+    % ---- Find the first non-zero term in the Taylor series of the numerator ----
     k = 0;
     n = 1;
-    num_equiv = (subs(diff(num, k), x, x0) * (x - x0)^k) / n;
+    num_equiv = (subs(diff(num, k), x, x0) * (x - x0)^k) / n;  % Initial term of numerator
     if num_equiv == 0
         k = 1;
         while num_equiv == 0
-            n = n * k;  % Compute factorial k!
+            n = n * k;  % k!
             num_equiv = num_equiv + (subs(diff(num, k), x, x0) * (x - x0)^k) / n;
             k = k + 1;
         end
     end
 
-    % --- Find lowest-order nonzero term in denominator ---
+    % ---- Find the first non-zero term in the Taylor series of the denominator ----
     k = 0;
     n = 1;
-    den_equiv = (subs(diff(den, k), x, x0) * (x - x0)^k) / n;
+    den_equiv = (subs(diff(den, k), x, x0) * (x - x0)^k) / n;  % Initial term of denominator
     if den_equiv == 0
         k = 1;
         while den_equiv == 0
-            n = n * k;
+            n = n * k;  % k!
             den_equiv = den_equiv + (subs(diff(den, k), x, x0) * (x - x0)^k) / n;
             k = k + 1;
         end
     end
 
-    % --- Compute the limit as the ratio of lowest nonzero terms ---
-    lim = num_equiv / den_equiv;
-    lim = subs(lim, x, x0);         % Substitute x0 into simplified expression
-    lim = double(lim);              % Convert to numeric value
+    % ---- Approximate the limit using the lowest non-zero terms of numerator and denominator ----
+    lim = num_equiv / den_equiv;       % Ratio of lowest-order terms
+    lim = subs(lim, x, x0);            % Evaluate at x = x0
+    lim = double(lim);                 % Convert symbolic result to numeric
 
     text = ['The value of the limit is: ' num2str(lim)];
-    disp(text)
+    disp(text)                         % Display the result
 
 else
-    disp('The limit is not in 0/0 indeterminate form')
+    disp('The limit is not in 0/0 indeterminate form')  % No Taylor expansion needed
 end
 end
+
 ```
