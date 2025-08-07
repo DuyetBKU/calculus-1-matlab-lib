@@ -1,30 +1,31 @@
-function tichphan
+function integral
 syms x
-f=input('nhap ham f1(x)= ');
-g=input('nhap ham f2(x)= ');
-m=solve(char(f-g),x);
-m=double(m);
-i=1;
-while i<=length(m)
-    if imag(m(i))>0.0001
-        m(i)=[];
-        i=i-1;
+f = input('Enter function f1(x) = ');
+g = input('Enter function f2(x) = ');
+m = solve(char(f - g), x);
+m = double(m);
+i = 1;
+while i <= length(m)
+    if imag(m(i)) > 1e-4
+        m(i) = [];
+        i = i - 1;
     else
-        m(i)=m(i)-imag(m(i))*1i;
+        m(i) = m(i) - imag(m(i)) * 1i; % Remove tiny imaginary part
     end
-    i=i+1;
+    i = i + 1;
 end
-m=union(m,m);
-if length(m)<=1
-  disp('ham f1 va f2 co it hon 2 giao diem, khong the tich the tich')
+m = unique(m);
+
+if length(m) <= 1
+    disp('Functions f1 and f2 intersect at less than two points — unable to compute area between them.');
 else
-  t=0;
- for i=1:length(m)-1
-  t=t+abs(int(f-g,x,m(i),m(i+1)));
- end
- t=double(t);
- text=['dien tich hinh phang bang: ' num2str(t)];
- disp(text)
+    area = 0;
+    for i = 1:length(m)-1
+        area = area + abs(int(f - g, x, m(i), m(i+1)));
+    end
+    area = double(area);
+    msg = ['The area between the curves is: ' num2str(area)];
+    disp(msg);
 end
 ezplot(f)
 hold on
