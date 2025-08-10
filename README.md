@@ -49,7 +49,7 @@ This project aims to:
 
 1. Clone this repository:
    ```bash
-   git clone https://github.com/DuyetBKU/calculus-1-matlab-lib.git
+   git clone https://github.com/DuyetBKU/edu-calculus-1-matlab-lib.git
    ```
 2. Open any `.m` file in MATLAB.
 3. Run, tweak, and explore — calculus comes alive through code!
